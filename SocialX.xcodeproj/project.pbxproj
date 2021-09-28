@@ -21,8 +21,8 @@
 /* Begin PBXFileReference section */
 		D80C1B2D2702AA170024487E /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		D8193C57270045E2001FCDAC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		D8193C59270045FB001FCDAC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = Assets.xcassets/RegistrationViewController.swift; sourceTree = "<group>"; };
-		D8193C5B270048C9001FCDAC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Assets.xcassets/User.swift; sourceTree = "<group>"; };
+		D8193C59270045FB001FCDAC /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D8193C5B270048C9001FCDAC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D81E128026FD9A5000D90680 /* SocialX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81E128326FD9A5000D90680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D81E128526FD9A5000D90680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +43,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D80C1B2F2702BA550024487E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D80C1B2D2702AA170024487E /* MainPageViewController.swift */,
+				D8193C57270045E2001FCDAC /* SignInViewController.swift */,
+				D8193C59270045FB001FCDAC /* RegistrationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D80C1B322702BB050024487E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8193C5B270048C9001FCDAC /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D80C1B332702BB440024487E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D81E128E26FD9A5200D90680 /* LaunchScreen.storyboard */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D80C1B342702BB830024487E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D81E128926FD9A5000D90680 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D81E127726FD9A5000D90680 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +96,14 @@
 		D81E128226FD9A5000D90680 /* SocialX */ = {
 			isa = PBXGroup;
 			children = (
-				D8193C57270045E2001FCDAC /* SignInViewController.swift */,
-				D8193C59270045FB001FCDAC /* RegistrationViewController.swift */,
-				D80C1B2D2702AA170024487E /* MainPageViewController.swift */,
-				D81E128326FD9A5000D90680 /* AppDelegate.swift */,
-				D81E128526FD9A5000D90680 /* SceneDelegate.swift */,
-				D81E128926FD9A5000D90680 /* Main.storyboard */,
+				D80C1B332702BB440024487E /* Base */,
 				D81E128C26FD9A5200D90680 /* Assets.xcassets */,
-				D81E128E26FD9A5200D90680 /* LaunchScreen.storyboard */,
+				D80C1B2F2702BA550024487E /* Controllers */,
+				D80C1B322702BB050024487E /* Models */,
+				D80C1B342702BB830024487E /* View */,
+				D81E128326FD9A5000D90680 /* AppDelegate.swift */,
 				D81E129126FD9A5200D90680 /* Info.plist */,
-				D8193C5B270048C9001FCDAC /* User.swift */,
+				D81E128526FD9A5000D90680 /* SceneDelegate.swift */,
 			);
 			path = SocialX;
 			sourceTree = "<group>";
