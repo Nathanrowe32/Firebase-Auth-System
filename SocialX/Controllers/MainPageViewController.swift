@@ -6,16 +6,23 @@
 //  Copyright © 2021 Nathan Rowe. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class MainPageViewController: UIViewController {
-
+    
     @IBOutlet weak var welcomeText: UILabel!
-    var user: User?
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.welcomeText.text = "Hello \(user!.username!)"
+        //if
+           //signed in
+       // } else {
+            //signed out
+       // }
         // Do any additional setup after loading the view.
     }
     

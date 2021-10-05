@@ -10,7 +10,7 @@
         <!--SignInScreen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="SignInScreen" id="BYZ-38-t0r" customClass="SignInViewController" customModule="SocialX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" title="SignInScreen" id="BYZ-38-t0r" customClass="SignInViewController" customModule="SocialX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="SignInViewController">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JHV-jH-HZl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTj-h0-sIq" userLabel="regButton">
                                 <rect key="frame" x="143" y="488" width="130" height="30"/>
@@ -41,23 +44,31 @@
                                     <segue destination="NMr-4J-5vu" kind="show" id="ccx-F9-81v"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lba-ZN-BOh" userLabel="usernameField">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lba-ZN-BOh" userLabel="emailField">
                                 <rect key="frame" x="109" y="366" width="196" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" hint="Username" label="usernameTextfield"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ERROR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6r-JX-fQy">
+                                <rect key="frame" x="77" y="285" width="263" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="2yy-c4-E6y"/>
                     <connections>
+                        <outlet property="email" destination="lba-ZN-BOh" id="Jed-mP-f6E"/>
+                        <outlet property="errorLabel" destination="e6r-JX-fQy" id="WtY-9J-HC9"/>
                         <outlet property="password" destination="9UX-j9-E85" id="dLg-cM-xpb"/>
                         <outlet property="regButton" destination="hTj-h0-sIq" id="rfF-03-aGq"/>
                         <outlet property="signInButton" destination="AgD-2s-Lg8" id="6fQ-iy-RBo"/>
-                        <outlet property="username" destination="9UX-j9-E85" id="Cmz-Ni-Zc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,14 +84,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-JF-qOU" userLabel="usernameField">
-                                <rect key="frame" x="50" y="256" width="315" height="34"/>
+                                <rect key="frame" x="50" y="346" width="315" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" hint="Username" label="usernameTextfield"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJN-rz-FPw" userLabel="passwordField">
-                                <rect key="frame" x="50" y="340" width="315" height="34"/>
+                                <rect key="frame" x="50" y="430" width="315" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" hint="Username" label="usernameTextfield"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -94,36 +105,59 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzJ-aL-Y61" userLabel="userText">
-                                <rect key="frame" x="50" y="205" width="315" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdI-vD-fgo" userLabel="passText">
-                                <rect key="frame" x="50" y="298" width="315" height="43"/>
+                                <rect key="frame" x="50" y="295" width="315" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIq-l4-jgs" userLabel="regButton">
-                                <rect key="frame" x="142" y="382" width="130" height="30"/>
+                                <rect key="frame" x="142" y="472" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Vsb-ou-Gpe" kind="show" id="e8R-3t-KSo"/>
+                                    <action selector="registerTapped:" destination="NMr-4J-5vu" eventType="touchUpInside" id="N9V-Zs-oa5"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F2X-ty-qPQ" userLabel="emailField">
+                                <rect key="frame" x="50" y="253" width="315" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="Username" label="emailTextfield"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8u-X6-fLc" userLabel="emailText">
+                                <rect key="frame" x="50" y="202" width="315" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdI-vD-fgo" userLabel="passText">
+                                <rect key="frame" x="50" y="388" width="315" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ERROR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1a-Rl-4pk" userLabel="errorText">
+                                <rect key="frame" x="50" y="510" width="315" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="3v9-z1-yqO"/>
                     </view>
                     <navigationItem key="navigationItem" id="fbB-VU-hC9"/>
                     <connections>
+                        <outlet property="email" destination="F2X-ty-qPQ" id="Qk0-5n-2Q3"/>
+                        <outlet property="errorLabel" destination="f1a-Rl-4pk" id="JIg-D7-D1p"/>
                         <outlet property="password" destination="aJN-rz-FPw" id="Wju-l0-iYZ"/>
                         <outlet property="regButton" destination="oIq-l4-jgs" id="z5g-GZ-vnS"/>
                         <outlet property="username" destination="cb6-JF-qOU" id="NEA-sO-htA"/>
@@ -136,7 +170,7 @@
         <!--MainPageScreen-->
         <scene sceneID="mKu-Ex-bd1">
             <objects>
-                <viewController title="MainPageScreen" id="Vsb-ou-Gpe" customClass="MainPageViewController" customModule="SocialX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" title="MainPageScreen" id="Vsb-ou-Gpe" customClass="MainPageViewController" customModule="SocialX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="71z-Eo-xkm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,14 +186,13 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6w5-3p-Y7O"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hs2-Wf-KrH"/>
                     <connections>
                         <outlet property="welcomeText" destination="7cJ-1D-xPQ" id="2fz-8M-Ofe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIL-uS-qiE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="850"/>
+            <point key="canvasLocation" x="-788" y="-612"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eoF-mw-0VY">
