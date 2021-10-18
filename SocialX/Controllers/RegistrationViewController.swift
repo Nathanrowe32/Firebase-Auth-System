@@ -20,6 +20,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var regButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,35 +57,27 @@ class RegistrationViewController: UIViewController {
         else {
     
             //create cleaned credientials
-            let cleanUsername = username.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let cleanEmail = email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let cleanPassword = password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let usernameString = username.text!
             //create user
-            Auth.auth().createUser(withEmail: cleanEmail, password: cleanPassword) { (result, err) in
+            Auth.auth().createUser(withEmail: cleanEmail, password: cleanPassword) { (authResult, err) in
                 //check for errors
-                if err != nil {
-                    //there was an error creating the user
+                guard let user = authResult?.user, error == nil else {
                     self.showError("Error creating user")
+                    return
                 }
-                else {
-                    //user created successfully.
-                    let db = Firestore.firestore()
-                    
-                    db.collection("users").addDocument(data: [
-                        "email": cleanEmail,
-                        "username": cleanUsername,
-                        "uid": result!.user.uid
-                    ]) { (error) in
-                        if error != nil {
-                            self.showError("Error saving user data")
-                        }
-                    }
-                    
-                    //transition to home.
-                    self.transitionToHome()
-                }
+                //adds user data to firestore.
+                let db = Firestore.firestore()
+                db.collection("UserData").document(user.uid).setData([
+                    "email": cleanEmail,
+                    "username": usernameString,
+                    "uid": user.uid,
+                    "timestamp": FieldValue.serverTimestamp()
+                ])
+            //transition to home.
+            self.transitionToLogIn()
             }
-            //go to homescreen
         }
      }
     
@@ -93,11 +86,12 @@ class RegistrationViewController: UIViewController {
         errorLabel.alpha = 1
     }
     
-    func transitionToHome() {
+    func transitionToLogIn() {
+        //displays a message on login about account creation.
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? MainPageViewController
+        let loginViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.loginViewController) as? SignInViewController
         
-        view.window?.rootViewController = homeViewController
+        view.window?.rootViewController = loginViewController
         view.window?.makeKeyAndVisible()
     }
 }

@@ -19,6 +19,7 @@
 		D81E128D26FD9A5200D90680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81E128C26FD9A5200D90680 /* Assets.xcassets */; };
 		D81E129026FD9A5200D90680 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81E128E26FD9A5200D90680 /* LaunchScreen.storyboard */; };
 		D86A6B3627096A3E0005F832 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86A6B3527096A3E0005F832 /* Constants.swift */; };
+		D8827E2F270C21F200D89737 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8827E2E270C21F200D89737 /* FirebaseUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D81E128F26FD9A5200D90680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D81E129126FD9A5200D90680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D86A6B3527096A3E0005F832 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D8827E2E270C21F200D89737 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		E5C5AD06271C2BAA1FABBC4B /* Pods-SocialX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialX.release.xcconfig"; path = "Target Support Files/Pods-SocialX/Pods-SocialX.release.xcconfig"; sourceTree = "<group>"; };
 		E6AFDBB42AA1905F11ECF1DA /* Pods_SocialX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			children = (
 				D8193C5B270048C9001FCDAC /* Utilities.swift */,
 				D86A6B3527096A3E0005F832 /* Constants.swift */,
+				D8827E2E270C21F200D89737 /* FirebaseUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				D8193C5A270045FB001FCDAC /* RegistrationViewController.swift in Sources */,
 				D86A6B3627096A3E0005F832 /* Constants.swift in Sources */,
 				D8193C5C270048C9001FCDAC /* Utilities.swift in Sources */,
+				D8827E2F270C21F200D89737 /* FirebaseUser.swift in Sources */,
 				D80C1B2E2702AA170024487E /* MainPageViewController.swift in Sources */,
 				D8193C58270045E2001FCDAC /* SignInViewController.swift in Sources */,
 			);

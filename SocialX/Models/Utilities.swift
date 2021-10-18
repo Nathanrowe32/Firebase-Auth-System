@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class Utilities  {
+class Utilities: UIViewController  {
 
     var email: String?
     var username: String?
@@ -25,5 +25,15 @@ class Utilities  {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
+    }
+    
+    //transitions UIViewController to X.
+    func transitionToLogIn() {
+        //displays a message on login about account creation.
+        
+        let loginViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.loginViewController) as? SignInViewController
+        
+        view.window?.rootViewController = loginViewController
+        view.window?.makeKeyAndVisible()
     }
 }

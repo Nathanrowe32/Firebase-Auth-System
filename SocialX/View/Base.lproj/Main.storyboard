@@ -182,17 +182,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-Uo-MaC">
+                                <rect key="frame" x="146" y="553" width="122" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="Vsb-ou-Gpe" eventType="touchUpInside" id="R8q-LC-Rto"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6w5-3p-Y7O"/>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="PoO-Uo-MaC" id="b1Z-pl-8GC"/>
                         <outlet property="welcomeText" destination="7cJ-1D-xPQ" id="2fz-8M-Ofe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIL-uS-qiE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-788" y="-612"/>
+            <point key="canvasLocation" x="-788.40579710144937" y="-612.05357142857144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eoF-mw-0VY">
