@@ -52,7 +52,7 @@ class RegistrationViewController: UIViewController {
         //validate fields
         let error = validateFields()
         if error != nil {
-            showError(error!)
+            Utilities.showError(error!, errorLabel)
         }
         else {
     
@@ -64,7 +64,7 @@ class RegistrationViewController: UIViewController {
             Auth.auth().createUser(withEmail: cleanEmail, password: cleanPassword) { (authResult, err) in
                 //check for errors
                 guard let user = authResult?.user, error == nil else {
-                    self.showError("Error creating user")
+                    Utilities.showError("Error creating user", self.errorLabel)
                     return
                 }
                 //adds user data to firestore.
@@ -75,23 +75,8 @@ class RegistrationViewController: UIViewController {
                     "uid": user.uid,
                     "timestamp": FieldValue.serverTimestamp()
                 ])
-            //transition to home.
-            self.transitionToLogIn()
+                Utilities.transitionToLogIn(self.view, self.storyboard!)
             }
         }
      }
-    
-    func showError(_ message: String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
-    }
-    
-    func transitionToLogIn() {
-        //displays a message on login about account creation.
-        
-        let loginViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.loginViewController) as? SignInViewController
-        
-        view.window?.rootViewController = loginViewController
-        view.window?.makeKeyAndVisible()
-    }
 }

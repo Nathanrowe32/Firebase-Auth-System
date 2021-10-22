@@ -183,7 +183,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-Uo-MaC">
-                                <rect key="frame" x="146" y="553" width="122" height="62"/>
+                                <rect key="frame" x="292" y="47" width="122" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,6 +192,23 @@
                                     <action selector="logoutPressed:" destination="Vsb-ou-Gpe" eventType="touchUpInside" id="R8q-LC-Rto"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSA-at-cb6">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" id="G5C-5D-YYi"/>
+                                    <barButtonItem title="Profile" id="5WD-gc-L8X">
+                                        <connections>
+                                            <action selector="profileButtonPressed:" destination="Vsb-ou-Gpe" id="LaO-G0-4Ro"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Explore" id="FNO-Y4-tNL">
+                                        <connections>
+                                            <action selector="exploreButtonPressed:" destination="Vsb-ou-Gpe" id="DfU-UW-qap"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="6w5-3p-Y7O"/>
@@ -204,6 +221,129 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIL-uS-qiE" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-788.40579710144937" y="-612.05357142857144"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="mkz-u2-DC6">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVC" title="Profile" id="yhK-e3-Mwp" customClass="ProfilePageViewController" customModule="SocialX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ENI-jt-djt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="fZj-Hl-P57" userLabel="profilePicHolder">
+                                <rect key="frame" x="87" y="90" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="USERNAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zc-bh-LGd" userLabel="usernameLabel">
+                                <rect key="frame" x="97" y="250" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Biography" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-2s-0rU" userLabel="BioLabel">
+                                <rect key="frame" x="149" y="313" width="117" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Talk a little about yourself!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tIE-Ef-Lsd" userLabel="textviewBio">
+                                <rect key="frame" x="18" y="342" width="376" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljl-sh-KrW">
+                                <rect key="frame" x="173" y="538" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8k-Un-eeb">
+                                <rect key="frame" x="-1" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" id="hcZ-Cb-sa7">
+                                        <connections>
+                                            <action selector="homeButtonPressed:" destination="yhK-e3-Mwp" id="vPc-L3-Tl9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Profile" id="sqM-nn-a1z">
+                                        <connections>
+                                            <action selector="profileButtonPressed:" destination="Vsb-ou-Gpe" id="coG-g6-vWt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Explore" id="ID0-U3-tT3">
+                                        <connections>
+                                            <action selector="exploreButtonPressed:" destination="yhK-e3-Mwp" id="lf5-3n-5hl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="NBl-0n-wMb"/>
+                    </view>
+                    <connections>
+                        <outlet property="bioTextview" destination="tIE-Ef-Lsd" id="MJW-xa-lsY"/>
+                        <outlet property="profilePic" destination="fZj-Hl-P57" id="VE6-VX-l9v"/>
+                        <outlet property="usernameLabel" destination="2Zc-bh-LGd" id="7OK-Bs-enu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Beo-5O-7aj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-788.40579710144937" y="-1434.375"/>
+        </scene>
+        <!--ExplorePage-->
+        <scene sceneID="3sm-sA-jDN">
+            <objects>
+                <viewController storyboardIdentifier="ExploreVC" id="75H-29-JhA" userLabel="ExplorePage" customClass="ExplorePageViewController" customModule="SocialX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zr1-eX-qsU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EeP-h8-gPz">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" id="U2K-a8-7WW" userLabel="Home"/>
+                                    <barButtonItem title="Profile" id="ymt-Lr-fhs">
+                                        <connections>
+                                            <action selector="profileButtonPressed:" destination="75H-29-JhA" id="iKC-NA-BJX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Explore" id="Fza-m0-o4x">
+                                        <connections>
+                                            <action selector="homeButtonPressed:" destination="75H-29-JhA" id="fh5-6a-WzD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Ik-Eg-MEO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NFJ-rM-IkB">
+                                <rect key="frame" x="0.0" y="315" width="414" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="1NE-Vh-qtF"/>
+                    </view>
+                    <connections>
+                        <outlet property="UIMap" destination="6Ik-Eg-MEO" id="VU0-Mw-B3k"/>
+                        <outlet property="UITable" destination="NFJ-rM-IkB" id="aFH-aA-EHL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5XN-6O-nhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.68115942028987" y="-1434.375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eoF-mw-0VY">
@@ -222,4 +362,7 @@
             <point key="canvasLocation" x="-787" y="116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultProfilePic" width="840" height="663"/>
+    </resources>
 </document>

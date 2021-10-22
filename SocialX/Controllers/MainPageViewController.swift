@@ -12,7 +12,6 @@
 import Foundation
 import UIKit
 import Firebase
-import FirebaseAuth
 
 class MainPageViewController: UIViewController {
     
@@ -26,7 +25,7 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         if user == nil {
             print("NO USER FOUND")
-            self.transitionToLogIn()
+            Utilities.transitionToLogIn(view, storyboard!)
         } else {
             scrapeUserData(user!)
             setDisplay(user!)
@@ -55,7 +54,7 @@ class MainPageViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
-            self.transitionToLogIn()
+            Utilities.transitionToLogIn(view, storyboard!)
         } catch {
             print("Error signing out")
         }
@@ -68,21 +67,11 @@ class MainPageViewController: UIViewController {
             // if error finding data will display error finding data
         //send data back to main frame.
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  @IBAction func profileButtonPressed(_ sender: Any) {
+    Utilities.transitionToProfile(self.view, self.storyboard!)
     }
-    */
-    func transitionToLogIn() {
-        //displays a message on login about account creation.
-        
-        let loginViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.loginViewController) as? SignInViewController
-        
-        view.window?.rootViewController = loginViewController
-        view.window?.makeKeyAndVisible()
+    @IBAction func exploreButtonPressed(_ sender: Any) {
+        Utilities.transitionToExplore(self.view, self.storyboard!)
     }
 }

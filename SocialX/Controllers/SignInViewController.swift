@@ -28,40 +28,27 @@ class SignInViewController: UIViewController {
         //validate user
         let error = validateFields()
         if error != nil {
-            //handle something
+            Utilities.showError(error!, errorLabel)
         } else {
         let cleanEmail = email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanPassword = password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //login user
             Auth.auth().signIn(withEmail: cleanEmail, password: cleanPassword) { (result, err) in
                 if err != nil {
-                    self.showError(err!.localizedDescription)
+                    Utilities.showError(err!.localizedDescription, self.errorLabel)
                 } else {
-                    self.transitionToHome()
+                    Utilities.transitionToHome(self.view, self.storyboard!)
                 }
             }
         }
     }
-    
-    func showError(_ message: String) {
-        errorLabel.text! = message
-        errorLabel.alpha = 1
-    }
-    
+   
+    //makes sure there is a password and username
     func validateFields() -> String? {
-        
         if password.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             email.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields."
         }
-        
         return nil
-    }
-    
-    func transitionToHome() {
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? MainPageViewController
-        
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
     }
 }
